@@ -1,0 +1,78 @@
+@import 'variables.scss';
+
+.header {
+    width: $app-width + 2 * $page-padding;
+    height: 45px;
+    padding-top: 165px;
+    margin: auto;
+    text-align: center;
+
+    // This was calculated from the natural outer width of the nav menu with four buttons
+    $brick-menu-width: 124px;
+
+    .brick-menu {
+        position: fixed;
+        left: 50%;
+        padding: $post-padding / 2;
+        padding-bottom: 5px;
+
+        background-color: $navigation-background-color;
+        box-shadow: $shadow $background-shadow-color;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+
+        a {
+            color: $navigation-color;
+
+            &:hover {
+                color: $active-link-color;
+            }
+            
+            i {
+                font-size: 28px;
+            }
+        }
+    }
+
+    .navigation {
+        margin-left: 0px - $app-width / 2;
+    }
+
+    .search {
+        margin-left: $app-width / 2 - $brick-menu-width - $post-padding;
+        
+        input {
+            border: none;
+            background-color: $navigation-indent-color;
+            font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            width: 82px;
+            color: $navigation-color;
+            vertical-align: top;
+            padding: 5px;
+            padding-bottom: 3px;
+            border-radius: $border-radius;
+            text-overflow: ellipsis;
+
+            &::placeholder {
+                color: $active-link-color;
+            }
+        }
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: $app-width;
+    padding: $page-padding;
+    margin: 0px auto $page-padding auto;
+    background-color: $background-color;
+    border-radius: $border-radius;
+    box-shadow: $shadow $background-shadow-color;
+
+    font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: $font-color;
+    line-height: 1.5;
+}

@@ -1,0 +1,31 @@
+.post-list {
+    display: table;
+    width: 100%;
+
+    > div {
+        display: table-cell;
+    }
+
+    .button-container {
+        width: 40px;
+        vertical-align: middle;
+
+        i {
+            font-size: 36px;
+        }
+    }
+
+    .list-container {
+        vertical-align: top;
+        text-align: center;
+
+        .list-item {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .no-results {
+            padding-top: 10px;
+        }
+    }
+}

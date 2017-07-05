@@ -1,0 +1,21 @@
+<a class='post-thumb' [routerLink]='post ? ["/post", post.slug] : []'>
+    <div class='post-image-wrapper'>
+        <image-grid *ngIf='post || album'
+            [albums]='post ? post.albums : [album]'></image-grid>
+    </div>
+    <div class='post-thumb-content'>
+        <div *ngIf='album'>
+            <div class='post-thumb-title'>{{ album.title }}</div>
+            <div class='post-thumb-subtitle'>
+                <artist-list [artists]='album.artists'></artist-list>
+            </div>
+            <div *ngIf='album.recommended' class='recommended'>
+                <recommended-stamp [thumbSize]='true'></recommended-stamp>
+            </div>
+        </div>
+        <div *ngIf='post && !album'>
+            <div class='post-thumb-title'>{{ post.title }}</div>
+        </div>
+        <div class='post-thumb-date' *ngIf='post'>{{ post.date | date:'longDate' }}</div>
+    </div>
+</a>

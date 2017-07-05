@@ -1,0 +1,30 @@
+// Global sass variables
+
+// Sizes
+$app-width: 960px;
+$page-padding: 30px;
+$post-padding: 20px;
+$border-radius: 5px;
+$button-space: 40px;
+
+// Colors
+$font-color: #314B57;
+$navigation-color: #2E213A;
+$link-color: #314B57;
+$active-link-color: #59386D;
+$background-color: #BCECE9;
+$overlay-background-color: rgba(46, 33, 58, .8);
+$navigation-background-color: #A474B5;
+$navigation-indent-color: #B18ABF;
+$background-shadow-color: #1C302B;
+$post-color: #F9EED3;
+$post-border-color: #E4CB90;
+$post-input-background-color: #F9F7EF;
+$shadow-color: #4DA58E;
+
+// Shadows
+$shadow: 0px 2px 10px 0;
+$hover-shadow: 0px 5px 10px 0;
+
+// Transition
+$transition: all 0.125s ease-in-out;

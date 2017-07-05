@@ -1,0 +1,18 @@
+<div>
+    <div *ngIf='title && !recommended' class='list-title'>{{ title }}</div>
+    <div *ngIf='recommended' class='recommended-title'>
+        <recommended-stamp></recommended-stamp>
+    </div>
+    <div *ngIf='subtitle' class='list-subtitle'>{{ subtitle }}</div>
+    <post-list
+        [page]='page'
+        (pageChange)='pageChange($event)'
+        [artists]='artist && [artist]'
+        [label]='label'
+        [year]='year'
+        [genre]='genre'
+        [isList]='isList'
+        [recommended]='recommended'
+        [headphones]='headphones'
+        [search]='search'></post-list>
+</div>

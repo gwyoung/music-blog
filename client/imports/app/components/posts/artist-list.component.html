@@ -1,0 +1,21 @@
+<span *ngIf='artists'>
+    <span *ngIf='artists.length === 1'>
+        <artist-link [artist]='artists[0]' [active]='active'></artist-link>
+    </span>
+    <span *ngIf='artists.length === 2'>
+        <artist-link [artist]='artists[0]' [active]='active'></artist-link> &
+        <artist-link [artist]='artists[1]' [active]='active'></artist-link>
+    </span>
+    <span *ngIf='artists.length === 3'>
+        <artist-link [artist]='artists[0]' [active]='active'></artist-link>,
+        <artist-link [artist]='artists[1]' [active]='active'></artist-link> &
+        <artist-link [artist]='artists[2]' [active]='active'></artist-link>
+    </span>
+    <span *ngIf='artists.length === 4'>
+        <artist-link [artist]='artists[0]' [active]='active'></artist-link>,
+        <artist-link [artist]='artists[1]' [active]='active'></artist-link>,
+        <artist-link [artist]='artists[2]' [active]='active'></artist-link> &
+        <artist-link [artist]='artists[3]' [active]='active'></artist-link>
+    </span>
+    <span *ngIf='artists.length > 4'>Various Artists</span>
+</span>

@@ -1,0 +1,70 @@
+@import 'variables.scss';
+
+// Global styles
+html, body {
+    height: 100%;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+html {
+    background-image: url('/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center top;
+    background-size: cover;
+}
+
+// Shared styles
+
+* {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: $link-color;
+    cursor: pointer;
+
+    &:hover {
+        color: $active-link-color;
+    }
+}
+
+.post-image {
+    width: 100%;
+    display: block;
+
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+}
+
+.list-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: $post-padding / 2;
+}
+
+.list-subtitle {
+    text-align: center;
+    padding-bottom: $post-padding / 2;
+}
+
+
+.post-detail-view {
+    width: 100%;
+    display: table;
+
+    > div {
+        display: table-cell;
+        vertical-align: top;
+    }
+
+    .post-link {
+        width: ($app-width - 2 * $button-space) / 4;
+    }
+}

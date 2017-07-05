@@ -1,0 +1,73 @@
+@import '../../variables.scss';
+
+.post-detail {
+    color: $font-color;
+    background-color: $post-color;
+    width: $app-width / 2;
+    border-radius: $border-radius;
+    margin: 0px auto $post-padding / 2 auto;
+    box-shadow: $shadow $shadow-color;
+
+    .post-image-wrapper {
+        min-height: $app-width / 2;
+    }
+
+    .post-content {
+        padding: 30px;
+        text-align: center;
+
+        .post-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            padding-bottom: $post-padding / 4;
+        }
+
+        .post-subtitle {
+            font-style: italic;
+            font-size: .9em;
+            padding-bottom: $post-padding;
+        }
+
+        .post-metadata {
+            padding-bottom: $post-padding / 2;
+        }
+
+        .divider {
+            padding: $post-padding / 2 0px;
+
+            i {
+                font-size: 36px;
+            }
+        }
+
+        .recommended {
+            padding-bottom: $post-padding;
+        }
+
+        .post-blurb {
+            padding-top: $post-padding / 2;
+            text-align: justify;
+        }
+
+        .post-album-list {
+            padding-top: $post-padding / 2;
+
+            .list-album {
+                font-weight: bold;
+                padding-top: $post-padding / 2;
+            }
+        }
+
+        .full-review {
+            font-weight: bold;
+            padding-top: $post-padding / 2;
+        }
+
+        .post-date {
+            font-style: italic;
+            font-size: .9em;
+            text-align: right;
+            padding-top: $post-padding;
+        }
+    }
+}

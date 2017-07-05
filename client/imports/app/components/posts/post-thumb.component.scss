@@ -1,0 +1,49 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+
+.post-thumb {
+    color: $font-color;
+    $width: ($app-width - 2 * $button-space) / 4 - $post-padding;
+    width: $width;
+    margin: $post-padding / 2;
+    background-color: $post-color;
+    cursor: pointer;
+    border-radius: $border-radius;
+    transition: $transition;
+    box-shadow: $shadow $shadow-color;
+    display: block;
+
+    &:hover {
+        transition: $transition;
+        box-shadow: $hover-shadow $shadow-color;
+        @include transform(translate(0px, -3px));
+    }
+
+    .post-image-wrapper {
+        min-height: $width;
+    }
+
+    .post-thumb-content {
+        padding: $post-padding;
+        text-align: center;
+
+        .post-thumb-title {
+            font-weight: bold;
+            font-size: .9em;
+        }
+
+        .post-thumb-subtitle {
+            font-size: .8em;
+        }
+
+        .recommended {
+            padding-top: $post-padding / 2;
+        }
+
+        .post-thumb-date {
+            margin-top: $post-padding / 2;
+            font-style: italic;
+            font-size: .7em;
+        }
+    }
+}

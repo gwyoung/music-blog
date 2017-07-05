@@ -1,0 +1,25 @@
+<div class='header'>
+    <div class='navigation brick-menu'>
+        <a [routerLink]='["/"]' title='Home'>
+            <i class='material-icons'>home</i>
+        </a>
+        <a [routerLink]='["/reviews"]' title='Reviews'>
+            <i class='material-icons'>image</i>
+        </a>
+        <a [routerLink]='["/lists"]' title='Lists'>
+            <i class='material-icons'>apps</i>
+        </a>
+        <a [routerLink]='["/about"]' title='About'>
+            <i class='material-icons'>info</i>
+    </div>
+    <div class='search brick-menu'>
+        <input type='text' placeholder="Search..."
+            [(ngModel)]='query' (keyup.enter)='search()' />
+        <a (click)='search()' title='Search'>
+            <i class='material-icons'>search</i>
+        </a>
+    </div>
+</div>
+<div class='container'>
+    <router-outlet></router-outlet>
+</div>

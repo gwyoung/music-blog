@@ -1,0 +1,64 @@
+<div *ngIf='album' class='album-edit'>
+    <img *ngIf='album.imageUrl' src='{{ album.imageUrl }}' />
+    <div>
+        <input type='file' (change)='fileChange($event)' />
+    </div>
+    <div>
+        <label>Title:</label>
+        <input type='text' [(ngModel)]='album.title' />
+    </div>
+    <div>
+        <label>Artists:</label>
+        <ul>
+            <li *ngFor='let artist of album.artists'>
+                {{ artist }}
+                <button (click)='removeArtist(artist)'>Remove</button>
+            </li>
+        </ul>
+        <input type='text' [(ngModel)]='newArtist' (keyup.enter)='addArtist()' />
+    </div>
+    <div>
+        <label>Year:</label>
+        <input type='number' [(ngModel)]='album.year' />
+    </div>
+    <div>
+        <label>Label:</label>
+        <input type='text' [(ngModel)]='album.label' />
+    </div>
+    <div>
+        <label>Genres:</label>
+        <ul>
+            <li *ngFor='let genre of album.genres'>
+                {{ genre }}
+                <button (click)='removeGenre(genre)'>Remove</button>
+            </li>
+        </ul>
+        <input type='text' [(ngModel)]='newGenre' (keyup.enter)='addGenre()' />
+    </div>
+    <div>
+        <label>Similar Artists:</label>
+        <ul>
+            <li *ngFor='let artist of album.similarArtists'>
+                {{ artist }}
+                <button (click)='removeSimilarArtist(artist)'>Remove</button>
+            </li>
+        </ul>
+        <input type='text' [(ngModel)]='newSimilarArtist' (keyup.enter)='addSimilarArtist()' />
+    </div>
+    <div>
+        <label>Recommended:</label>
+        <input type='checkbox' [(ngModel)]='album.recommended' />
+    </div>
+    <div>
+        <label>Headphones:</label>
+        <input type='checkbox' [(ngModel)]='album.headphones' />
+    </div>
+    <div>
+        <label>Review:</label>
+        <textarea [(ngModel)]='album.review'></textarea>
+    </div>
+    <div>
+        <label>Related Post:</label>
+        <input type='text' [(ngModel)]='album.fullPostSlug' />
+    </div>
+</div>

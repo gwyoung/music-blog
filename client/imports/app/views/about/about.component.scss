@@ -1,0 +1,23 @@
+@import '../../variables.scss';
+
+.about-content {
+    width: $app-width / 2 - $post-padding * 2;
+    text-align: center;
+    background-color: $post-color;
+    padding: $post-padding;
+    border-radius: $border-radius;
+    margin: $post-padding / 2 auto 0px auto;
+    box-shadow: $shadow $shadow-color;
+
+    .about-text {
+        text-align: justify;
+    }
+
+    .recommended-wrapper {
+        padding-top: $post-padding;
+    }
+
+    .copyright {
+        font-size: .8em;
+    }
+}

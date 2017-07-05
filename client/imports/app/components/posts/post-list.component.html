@@ -1,0 +1,21 @@
+<div class='post-list'>
+    <div class='button-container'>
+        <a *ngIf='currentPage.value > 1' (click)='incrementPage(-1)'>
+            <i class='material-icons' title='Newer'>fast_rewind</i>
+        </a>
+    </div>
+    <div class='list-container'>
+        <div class='list-item' *ngFor='let post of posts | async'>
+            <post-thumb [post]='post'></post-thumb>
+        </div>
+        <div class='no-results' *ngIf='!loading && !postsCount'>
+            There's nothing here yet.
+        </div>
+    </div>
+    <div class='button-container'>
+        <a *ngIf='currentPage.value * pageSize < postsCount'
+            (click)='incrementPage(1)' title='Older'>
+            <i class='material-icons'>fast_forward</i>
+        </a>
+    </div>
+</div>

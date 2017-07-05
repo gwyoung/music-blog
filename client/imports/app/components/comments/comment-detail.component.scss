@@ -1,0 +1,64 @@
+@import '../../variables.scss';
+
+.comment-detail {
+    $width: $app-width / 2 - 2 * $page-padding;
+    $input-padding: 5px;
+
+    color: $font-color;
+    background-color: $post-color;
+    width: $width;
+    padding: $page-padding;
+    text-align: justify;
+    border-radius: $border-radius;
+    margin: 0px auto $post-padding / 2 auto;
+    box-shadow: $shadow $shadow-color;
+
+    input, textarea {
+        border: none;
+        background-color: $post-input-background-color;
+        font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-size: 16px;
+        color: $font-color;
+        padding: $input-padding;
+        padding-bottom: 3px;
+        border-radius: $border-radius;
+
+        &::placeholder {
+            color: $font-color;
+            opacity: .4;
+        }
+    }
+
+    .comment-name {
+        font-weight: bold;
+
+        input {
+            width: $width / 2 - 2 * $input-padding;
+            vertical-align: top;
+            font-weight: bold;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .comment-text {
+        padding-top: $post-padding / 2;
+
+        textarea {
+            width: $width - 2 * $input-padding;
+            height: 80px;
+            resize: none;
+        }
+    }
+
+    .comment-date {
+        padding-top: $post-padding;
+        font-style: italic;
+        font-size: .9em;
+        text-align: right;
+    }
+
+    .comment-buttons {
+        padding-top: $post-padding / 2;
+        text-align: right;
+    }
+}

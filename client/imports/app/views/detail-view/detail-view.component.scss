@@ -1,0 +1,14 @@
+@import '../../variables.scss';
+
+.edit-button-wrapper {
+    padding-top: $post-padding / 2;
+    text-align: center;
+}
+
+.list-title {
+    padding-top: $post-padding;
+}
+
+.comment-list {
+    padding-top: $post-padding / 2;
+}

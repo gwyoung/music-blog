@@ -1,0 +1,28 @@
+<div *ngIf='post' class='post-edit'>
+    <div>
+        <button (click)='addAlbum()'>Add Album</button>
+        <div *ngFor='let album of post.albums; let i = index' class='album-edit-wrapper'>
+            <span>{{ i + 1 }}.</span>
+            <button (click)='moveAlbum(album, -1)'>Up</button>
+            <button (click)='moveAlbum(album, 1)'>Down</button>
+            <button (click)='removeAlbum(album)'>Remove</button>
+            <album-edit [(album)]='post.albums[i]'></album-edit>
+        </div>
+    </div>
+    <div>
+        <label>Date:</label>
+        <my-date-picker
+            [options]='datePickerOptions'
+            [selDate]='selectedDate'
+            (dateChanged)='dateChanged($event)'>
+        </my-date-picker>
+    </div>
+    <div>
+        <label>Title:</label>
+        <input type='text' [(ngModel)]='post.title' />
+    </div>
+    <div>
+        <label>Blurb:</label>
+        <textarea [(ngModel)]='post.blurb'></textarea>
+    </div>
+</div>

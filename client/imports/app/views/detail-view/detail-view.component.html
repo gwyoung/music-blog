@@ -1,0 +1,37 @@
+<div *ngIf='post'>
+    <div class='post-detail-view'>
+        <div class='post-link'>
+            <div *ngIf='nextPost'>
+                <div class='list-title'>Newer</div>
+                <post-thumb [post]='nextPost'></post-thumb>
+            </div>
+        </div>
+        <div class='post-detail-wrapper'>
+            <post-detail *ngIf='post' [post]='post'></post-detail>
+        </div>
+        <div class='post-link'>
+            <div *ngIf='previousPost'>
+                <div class='list-title'>Older</div>
+                <post-thumb [post]='previousPost'></post-thumb>
+            </div>
+        </div>
+    </div>
+    <div *ngIf='canEdit()' class='edit-button-wrapper'>
+        <a [routerLink]='["/admin", post.slug]'>
+            <i class="material-icons">mode_edit</i>
+        </a>
+    </div>
+    <div class='list-title'>Comments</div>
+    <div class='comment-list'>
+        <comment-detail *ngFor='let comment of comments | async'
+            [postId]='post._id' [comment]='comment'></comment-detail>
+        <comment-detail *ngIf='canAddComment()' [postId]='post._id'
+            [clearOnSubmit]='true'></comment-detail>
+    </div>
+    <div class='list-title'>Related</div>
+    <post-list *ngIf='artists'
+        [pageSize]='4'
+        [artists]='artists'
+        [excludedPostId]='post._id'></post-list>
+</div>
+<div *ngIf='notFound' class='list-title'>Not Found</div>

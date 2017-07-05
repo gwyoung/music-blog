@@ -1,0 +1,29 @@
+<div *ngIf='albums && visible' class='album-gallery-wrapper'>
+    <div class='album-gallery'>
+        <div class='gallery-close'>
+            <a (click)='close()' title='Back'>
+                <i class="material-icons">replay</i>
+            </a>
+        </div>
+        <div class='post-detail-view'>
+            <div class='post-link'>
+                <div *ngIf='index < albums.length - 1'>
+                    <div class='list-title'>{{ index + 2 }}</div>
+                    <post-thumb [album]='albums[index + 1]'
+                        (click)='incrementIndex(1)'></post-thumb>
+                </div>
+            </div>
+            <div class='post-detail-wrapper'>
+                <div class='list-title'>{{ index + 1 }}</div>
+                <post-detail [album]='albums[index]'></post-detail>
+            </div>
+            <div class='post-link'>
+                <div *ngIf='index > 0'>
+                    <div class='list-title'>{{ index }}</div>
+                    <post-thumb [album]='albums[index - 1]'
+                        (click)='incrementIndex(-1)'></post-thumb>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

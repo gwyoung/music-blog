@@ -1,0 +1,12 @@
+<div class='image-grid'>
+    <img *ngFor='let album of albums | reverse; let i = index'
+        src='{{ album.imageUrl }}'
+        [ngClass]='{
+            "grid-image": true,
+            "top-left": i === 0,
+            "top-right": i === rowSize - 1,
+            "clickable": albums.length > 1
+        }'
+        [style.width]='(100 / rowSize) + "%"'
+        (click)='selectAlbum(album)' />
+</div>

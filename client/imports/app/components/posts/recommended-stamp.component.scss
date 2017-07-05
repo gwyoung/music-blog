@@ -1,0 +1,36 @@
+@import '../../variables.scss';
+
+.recommended-stamp {
+    display: inline-block;
+    color: $navigation-background-color;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: $border-radius;
+    padding: 0px 4px 0px 2px;
+    border: 2px solid $navigation-background-color;
+
+    i, span {
+        vertical-align: middle;
+    }
+
+    span {
+        font-size: 1.2em;
+    }
+
+    &.thumb-size {
+        i {
+            font-size: 20px;
+            position: relative;
+            top: -1px;
+        }
+
+        span {
+            font-size: .9em;
+        }
+    }
+
+    &.clickable:hover {
+        color: $active-link-color;
+        border-color: $active-link-color;
+    }
+}

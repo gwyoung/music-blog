@@ -1,0 +1,20 @@
+@import '../../variables.scss';
+
+.image-grid {
+    .grid-image {
+        display: block;
+        float: left;
+        
+        &.top-left {
+            border-top-left-radius: $border-radius;
+        }
+
+        &.top-right {
+            border-top-right-radius: $border-radius;
+        }
+
+        &.clickable {
+            cursor: pointer;
+        }
+    }
+}

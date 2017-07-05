@@ -1,0 +1,6 @@
+<div>
+    <login-buttons></login-buttons>
+    <post-edit *ngIf='canEdit()' [(post)]='post'></post-edit>
+    <button *ngIf='canEdit()' (click)='publish()'>Publish</button>
+    <button *ngIf='canRemove()' (click)='removePost()'>Remove</button>
+</div>

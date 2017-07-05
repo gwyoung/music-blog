@@ -1,0 +1,19 @@
+.post-edit {
+    > div {
+        padding-top: 10px;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    textarea {
+        width: 100%;
+        height: 200px;
+        resize: none;
+    }
+
+    .album-edit-wrapper {
+        padding: 20px 0px;
+    }
+}
