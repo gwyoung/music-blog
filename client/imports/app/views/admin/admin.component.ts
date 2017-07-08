@@ -83,8 +83,8 @@ export class AdminComponent implements OnInit, OnDestroy {
             this.post.slug = this.postHelpersService.getSlug(this.post);
 
             if (!this.post._id) {
-                Posts.insert(this.post).subscribe((postId: string) => {
-                    this.router.navigate(['/post/', postId]);
+                Posts.insert(this.post).subscribe(() => {
+                    this.router.navigate(['/post/', this.post.slug]);
                 });
             } else {
                 let postId: string = this.post._id;

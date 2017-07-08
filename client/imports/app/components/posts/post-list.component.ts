@@ -31,6 +31,7 @@ export class PostListComponent implements OnChanges, OnDestroy {
     @Input() pageSize: number = 8;
     @Input() page: number = 1;
     @Output() pageChange: EventEmitter<number> = new EventEmitter<number>();
+    @Input() autoPage: boolean = true;
 
     @Input() excludedPostId?: string;
     @Input() artists?: string[];
@@ -96,6 +97,7 @@ export class PostListComponent implements OnChanges, OnDestroy {
                 .subscribe('posts', paginationFilter, postFilter.toQuery(), this.search)
                 .subscribe(() => {
                     this.posts = Posts.find(postFilter.toQuery(), {
+                        limit: this.pageSize,
                         sort: sort
                     }).zone();
 
@@ -121,7 +123,9 @@ export class PostListComponent implements OnChanges, OnDestroy {
     incrementPage(diff: number) {
         let newPage: number = this.currentPage.value + diff;
 
-        this.currentPage.next(newPage);
+        if (this.autoPage) {
+            this.currentPage.next(newPage);
+        }
         this.pageChange.emit(newPage);
     }
 }

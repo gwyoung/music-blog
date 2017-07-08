@@ -15,6 +15,7 @@
     .post-content {
         padding: 30px;
         text-align: center;
+        clear: both;
 
         .post-title {
             font-size: 1.2em;
@@ -32,7 +33,7 @@
             padding-bottom: $post-padding / 2;
         }
 
-        .divider {
+        .album-divider {
             padding: $post-padding / 2 0px;
 
             i {
@@ -44,23 +45,37 @@
             padding-bottom: $post-padding;
         }
 
-        .post-blurb {
+        .album-blurb {
             padding-top: $post-padding / 2;
             text-align: justify;
         }
 
-        .post-album-list {
-            padding-top: $post-padding / 2;
+        .full-review {
+            font-weight: bold;
+            padding-top: $post-padding;
+        }
 
-            .list-album {
-                font-weight: bold;
-                padding-top: $post-padding / 2;
+        .list-blurb {
+            padding-top: $post-padding;
+            text-align: justify;
+        }
+
+        .list-divider {
+            padding-top: $post-padding;
+
+            i {
+                font-size: 36px;
             }
         }
 
-        .full-review {
-            font-weight: bold;
+        .list-albums {
             padding-top: $post-padding / 2;
+            font-weight: bold;
+            font-size: .9em;
+
+            .list-album {
+                padding-top: $post-padding / 2;
+            }
         }
 
         .post-date {

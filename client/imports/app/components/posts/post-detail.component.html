@@ -40,51 +40,49 @@
                         *ngIf='i < album.similarArtists.length - 1'>, </span>
                 </span>
             </div>
+            <div class='album-divider' *ngIf='album'>
+                <a *ngIf='album.headphones'
+                    [routerLink]='["/headphones"]'
+                    title='Use Headphones'>
+                    <i class="material-icons">headset</i>
+                </a>
+                <a *ngIf='!album.headphones'
+                    [routerLink]='["/speakers"]'
+                    title='Use Speakers'>
+                    <i class="material-icons">speaker</i>
+                </a>
+            </div>
+            <div *ngIf='album.recommended' class='recommended'>
+                <a [routerLink]='["/fantasy"]'>
+                    <recommended-stamp [clickable]='true'></recommended-stamp>
+                </a>
+            </div>
+            <div class='album-blurb' [innerHTML]='album.review | blurb'></div>
+            <div *ngIf='album.fullPostSlug' class='full-review'>
+                <a [routerLink]='["/post", album.fullPostSlug]'>See Full Review</a>
+            </div>
         </div>
         <div *ngIf='post && !album'>
             <div class='post-title'>{{ post.title }}</div>
-        </div>
-        <div class='divider'>
-            <a *ngIf='album && album.headphones'
-                [routerLink]='["/headphones"]'
-                title='Use Headphones'>
-                <i class="material-icons">headset</i>
-            </a>
-            <a *ngIf='album && !album.headphones'
-                [routerLink]='["/speakers"]'
-                title='Use Speakers'>
-                <i class="material-icons">speaker</i>
-            </a>
-            <a *ngIf='post && !album'
-                [routerLink]='["/lists"]'
-                title='Lists'>
-                <i class="material-icons">apps</i>
-            </a>
-        </div>
-        <div *ngIf='album && album.recommended' class='recommended'>
-            <a [routerLink]='["/fantasy"]'>
-                <recommended-stamp [clickable]='true'></recommended-stamp>
-            </a>
-        </div>
-        <div class='post-blurb'
-            [innerHTML]='(album ? album.review : post.blurb) | blurb'></div>
-        <div *ngIf='post && !album' class='post-album-list'>
-            <div *ngFor='let listAlbum of post.albums | reverse' class='list-album'>
-                <a (click)='openGallery(listAlbum)'>
-                    <span>{{ post.albums.indexOf(listAlbum) + 1 }}.</span>
-                    <artist-list [artists]='listAlbum.artists'></artist-list>
-                    -
-                    <span>{{ listAlbum.title }}</span>
+            <div class='list-blurb' [innerHTML]='post.blurb | blurb'></div>
+            <div class='list-divider'>
+                <a [routerLink]='["/lists"]' title='Lists'>
+                    <i class="material-icons">apps</i>
                 </a>
             </div>
-        </div>
-        <div *ngIf='album && album.fullPostSlug' class='full-review'>
-            <a [routerLink]='["/post", album.fullPostSlug]'>See Full Review</a>
+            <div class='list-albums'>
+                <div *ngFor='let listAlbum of post.albums | reverse' class='list-album'>
+                    <a (click)='openGallery(listAlbum)'>
+                        <span>{{ post.albums.indexOf(listAlbum) + 1 }}.</span>
+                        <artist-list [artists]='listAlbum.artists'></artist-list>
+                        -
+                        <span>{{ listAlbum.title }}</span>
+                    </a>
+                </div>
+            </div>
+            <album-gallery [albums]='post.albums' [(index)]='galleryIndex'
+                [(visible)]='galleryVisible'></album-gallery>
         </div>
         <div *ngIf='post' class='post-date'>{{ post.date | date:'longDate' }}</div>
     </div>
-    <album-gallery *ngIf='post && post.albums.length > 1'
-        [albums]='post.albums'
-        [(index)]='galleryIndex'
-        [(visible)]='galleryVisible'></album-gallery>
 </div>
