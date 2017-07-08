@@ -56,8 +56,8 @@ export class PostEditComponent implements OnInit {
         let index: number = this.post.albums.indexOf(album);
         if (index >= 0) {
             // Calculate the new index
-            let newIndex: number = Math.max(
-                Math.min(0, index + diff),
+            let newIndex: number = Math.min(
+                Math.max(0, index + diff),
                 this.post.albums.length - 1);
 
             // Remove the element from the index and re-add it at the newIndex
