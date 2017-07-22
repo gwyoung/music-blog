@@ -4,7 +4,7 @@
     background-image: url('/header.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center -10px;
+    background-position: center -15px;
     background-size: 840px;
 
     width: $app-width + 2 * $page-padding;
@@ -73,7 +73,7 @@
     z-index: 1;
     width: $app-width;
     padding: $page-padding;
-    margin: 0px auto $page-padding auto;
+    margin: 0px auto;
     background-color: $background-color;
     border-radius: $border-radius;
     box-shadow: $shadow $background-shadow-color;
@@ -81,4 +81,8 @@
     font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
     color: $font-color;
     line-height: 1.5;
+}
+
+.footer {
+    height: $page-padding;
 }
