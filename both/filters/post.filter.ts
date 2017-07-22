@@ -1,6 +1,6 @@
 export class PostFilter {
     slug?: string;
-    excludedPostId?: string;
+    excludedPostIds?: string[];
     artists?: string[];
     label?: string;
     year?: number;
@@ -18,9 +18,9 @@ export class PostFilter {
             };
         }
 
-        if (this.excludedPostId) {
+        if (this.excludedPostIds && this.excludedPostIds.length) {
             query = {
-                $and: [ query, { _id: { $ne: this.excludedPostId } }]
+                $and: [ query, { _id: { $nin: this.excludedPostIds } }]
             };
         }
 

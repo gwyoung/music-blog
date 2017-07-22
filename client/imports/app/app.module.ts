@@ -29,6 +29,7 @@ import { SERVICES_PROVIDERS } from './services';
     ],
     providers: [
         Title,
+        ...PIPES_DECLARATIONS,
         ...SERVICES_PROVIDERS
     ],
     bootstrap: [

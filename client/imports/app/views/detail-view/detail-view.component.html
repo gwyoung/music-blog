@@ -29,9 +29,9 @@
             [clearOnSubmit]='true'></comment-detail>
     </div>
     <div class='list-title'>Related</div>
-    <post-list *ngIf='artists'
+    <post-list *ngIf='artists && excludedPostIds'
         [pageSize]='4'
         [artists]='artists'
-        [excludedPostId]='post._id'></post-list>
+        [excludedPostIds]='excludedPostIds'></post-list>
 </div>
 <div *ngIf='notFound' class='list-title'>Not Found</div>

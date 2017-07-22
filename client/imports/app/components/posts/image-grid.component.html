@@ -8,5 +8,6 @@
             "clickable": albums.length > 1
         }'
         [style.width]='(100 / rowSize) + "%"'
-        (click)='selectAlbum(album)' />
+        (click)='selectAlbum(album)'
+        title='{{ album | albumTitle }}' />
 </div>

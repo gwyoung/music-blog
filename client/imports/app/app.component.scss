@@ -1,6 +1,12 @@
 @import 'variables.scss';
 
 .header {
+    background-image: url('/header.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center -10px;
+    background-size: 840px;
+
     width: $app-width + 2 * $page-padding;
     height: 45px;
     padding-top: 165px;

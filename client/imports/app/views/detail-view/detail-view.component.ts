@@ -38,6 +38,7 @@ export class DetailViewComponent implements OnInit, OnDestroy {
     comments: Observable<PostComment[]>;
     paramsSub: Subscription;
     artists: string[];
+    excludedPostIds: string[];
     notFound: boolean;
 
     constructor(
@@ -45,6 +46,22 @@ export class DetailViewComponent implements OnInit, OnDestroy {
         private titleService: Title,
         private postHelpersService: PostHelpersService
     ) {}
+
+    private setExcludedPostIds() {
+        this.excludedPostIds = [];
+
+        if (this.post) {
+            this.excludedPostIds.push(this.post._id);
+        }
+
+        if (this.previousPost) {
+            this.excludedPostIds.push(this.previousPost._id);
+        }
+
+        if (this.nextPost) {
+            this.excludedPostIds.push(this.nextPost._id);
+        }
+    }
 
     ngOnInit() {
         this.paramsSub = this.route.params
@@ -68,6 +85,7 @@ export class DetailViewComponent implements OnInit, OnDestroy {
                                     this.nextPost = Posts.findOne(
                                         { date: { $gt: this.post.date } },
                                         { sort: { date: 1} });
+                                    this.setExcludedPostIds();
                                 });
 
                             this.previousPostSub && this.previousPostSub.unsubscribe();
@@ -77,6 +95,7 @@ export class DetailViewComponent implements OnInit, OnDestroy {
                                     this.previousPost = Posts.findOne(
                                         { date: { $lt: this.post.date } },
                                         { sort: { date: -1} });
+                                    this.setExcludedPostIds();
                                 });
 
                             let postCommentFilter = new PostCommentFilter();
@@ -101,6 +120,8 @@ export class DetailViewComponent implements OnInit, OnDestroy {
                             this.titleService.setTitle(
                                 this.postHelpersService.getTitle(this.post)
                                 + ' | Bricks Clapping In The Dark');
+
+                            this.setExcludedPostIds();
                         }
                 });
             });

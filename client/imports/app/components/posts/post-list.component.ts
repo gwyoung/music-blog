@@ -33,7 +33,7 @@ export class PostListComponent implements OnChanges, OnDestroy {
     @Output() pageChange: EventEmitter<number> = new EventEmitter<number>();
     @Input() autoPage: boolean = true;
 
-    @Input() excludedPostId?: string;
+    @Input() excludedPostIds?: string[];
     @Input() artists?: string[];
     @Input() label?: string;
     @Input() year?: number;
@@ -68,8 +68,8 @@ export class PostListComponent implements OnChanges, OnDestroy {
 
             // Construct the post filter
             const postFilter: PostFilter = new PostFilter();
-            if (this.excludedPostId) {
-                postFilter.excludedPostId = this.excludedPostId;
+            if (this.excludedPostIds && this.excludedPostIds.length) {
+                postFilter.excludedPostIds = this.excludedPostIds;
             }
             if (this.artists && this.artists.length) {
                 postFilter.artists = this.artists;
