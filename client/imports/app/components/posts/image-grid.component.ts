@@ -12,6 +12,7 @@ import { Album } from '../../../../../both/models/album.model';
 export class ImageGridComponent implements OnChanges {
     rowSize: number;
 
+    @Input() clickable?: boolean;
     @Input() albums: Album[];
     @Output() albumSelected: EventEmitter<Album> = new EventEmitter<Album>();
 

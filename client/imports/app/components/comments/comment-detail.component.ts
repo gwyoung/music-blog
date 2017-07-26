@@ -27,7 +27,7 @@ export class CommentDetailComponent implements OnInit, OnChanges {
 
     ngOnChanges() {
         this.editing = this.comment
-            && ((!this.comment._id && PostCommentPermissions.insert(Meteor.userId()))
+            && ((!this.comment._id && PostCommentPermissions.insert(Meteor.userId(), this.comment))
                 || (this.comment._id && PostCommentPermissions.update(Meteor.userId())));
     }
 

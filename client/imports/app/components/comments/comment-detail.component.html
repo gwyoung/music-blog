@@ -1,12 +1,13 @@
 <div class='comment-detail' *ngIf='comment'>
     <div class='comment-name'>
         <span *ngIf='!editing'>{{ comment.name }} says:</span>
-        <input type='text' placeholder='Name' *ngIf='editing' [(ngModel)]='comment.name' />
+        <input type='text' placeholder='Name' maxlength='50'
+            *ngIf='editing' [(ngModel)]='comment.name' />
     </div>
     <div class='comment-text'>
         <div *ngIf='!editing'>{{ comment.text }}</div>
-        <textarea placeholder='Enter a comment' *ngIf='editing'
-            [(ngModel)]='comment.text' (keydown.enter)='saveComment()'>
+        <textarea placeholder='Enter a comment' maxlength='10000'
+            *ngIf='editing' [(ngModel)]='comment.text' (keydown.enter)='saveComment()'>
         </textarea>
     </div>
     <div class='comment-date' *ngIf='!editing'>{{ comment.date | date:'longDate' }}</div>

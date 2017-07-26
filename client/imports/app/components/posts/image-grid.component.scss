@@ -1,9 +1,11 @@
 @import '../../variables.scss';
+@import '../../mixins.scss';
 
 .image-grid {
     .grid-image {
         display: block;
         float: left;
+        position: relative;
         
         &.top-left {
             border-top-left-radius: $border-radius;
@@ -15,6 +17,14 @@
 
         &.clickable {
             cursor: pointer;
+            transition: $transition;
+
+            &:hover {
+                z-index: 2;
+                box-shadow: $shadow $background-shadow-color;
+                transition: $transition;
+                @include transform(scale(1.03, 1.03));
+            }
         }
     }
 }

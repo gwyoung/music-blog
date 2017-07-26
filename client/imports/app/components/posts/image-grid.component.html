@@ -5,9 +5,9 @@
             "grid-image": true,
             "top-left": i === 0,
             "top-right": i === rowSize - 1,
-            "clickable": albums.length > 1
+            "clickable": clickable && albums.length > 1
         }'
         [style.width]='(100 / rowSize) + "%"'
         (click)='selectAlbum(album)'
-        title='{{ album | albumTitle }}' />
+        title='{{ (albums.length > 1 ? album : null) | albumTitle }}' />
 </div>

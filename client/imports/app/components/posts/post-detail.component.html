@@ -1,6 +1,7 @@
 <div class='post-detail'>
     <div class='post-image-wrapper'>
         <image-grid *ngIf='post || album'
+            [clickable]='true'
             [albums]='post ? post.albums : [album]'
             (albumSelected)='openGallery($event)'></image-grid>
     </div>
