@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AccountsModule } from 'angular2-meteor-accounts-ui';
 import { MyDatePickerModule } from 'mydatepicker';
+import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
 
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
@@ -19,7 +20,8 @@ import { SERVICES_PROVIDERS } from './services';
         ReactiveFormsModule,
         RouterModule.forRoot(routes),
         AccountsModule,
-        MyDatePickerModule
+        MyDatePickerModule,
+        Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ])
     ],
     declarations: [
         AppComponent,

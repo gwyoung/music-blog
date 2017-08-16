@@ -4,10 +4,16 @@
     width: $app-width / 2 - $post-padding * 2;
     text-align: center;
     background-color: $post-color;
-    padding: $post-padding;
+    padding: $page-padding;
     border-radius: $border-radius;
     margin: $post-padding / 2 auto 0px auto;
     box-shadow: $shadow $shadow-color;
+
+    .about-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        padding-bottom: $post-padding;
+    }
 
     .about-text {
         text-align: justify;
@@ -15,6 +21,7 @@
 
     .recommended-wrapper {
         padding-top: $post-padding;
+        padding-bottom: $post-padding / 2;
     }
 
     .copyright {

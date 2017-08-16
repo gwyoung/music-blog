@@ -72,6 +72,7 @@ export class DetailViewComponent implements OnInit, OnDestroy {
                 this.postSub && this.postSub.unsubscribe();
 
                 // Reset values associated with the current post
+                this.post = null;
                 this.nextPost = null;
                 this.previousPost = null;
                 this.comments = null;

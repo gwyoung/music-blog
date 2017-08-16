@@ -1,8 +1,10 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { Meteor } from 'meteor/meteor';
+import { Angulartics2 } from 'angulartics2';
 
 import template from './comment-detail.component.html';
 import style from './comment-detail.component.scss';
+import { Post } from '../../../../../both/models/post.model';
 import { PostComment } from '../../../../../both/models/post-comment.model';
 import { PostComments } from '../../../../../both/collections/post-comments.collection';
 import { PostCommentPermissions } from '../../../../../both/permissions/post-comment.permissions';
@@ -13,9 +15,13 @@ import { PostCommentPermissions } from '../../../../../both/permissions/post-com
     styles: [ style ]
 })
 export class CommentDetailComponent implements OnInit, OnChanges {
-    @Input() postId: string;
+    @Input() post: Post;
     @Input() comment: PostComment;
     @Input() clearOnSubmit?: boolean;
+
+    constructor(
+        private angulartics2: Angulartics2
+    ) {}
 
     editing: boolean;
 
@@ -39,7 +45,7 @@ export class CommentDetailComponent implements OnInit, OnChanges {
 
     createComment() {
         this.comment = {
-            postId: this.postId,
+            postId: this.post._id,
             date: new Date(),
             name: '',
             text: ''
@@ -53,6 +59,14 @@ export class CommentDetailComponent implements OnInit, OnChanges {
             this.comment.name = this.comment.name.trim() || 'Anonymous';
 
             if (this.comment.text.trim()) {
+                // Track for analytics
+                this.angulartics2.eventTrack.next({
+                    action: 'Comment',
+                    properties: {
+                        category: this.post.slug
+                    }
+                });
+
                 // Insert or update the comment
                 if (!this.comment._id) {
                     PostComments.insert(this.comment);

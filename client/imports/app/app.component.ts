@@ -1,3 +1,4 @@
+import { Angulartics2GoogleAnalytics } from 'angulartics2';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
@@ -13,7 +14,8 @@ export class AppComponent implements OnInit {
     query: string;
 
     constructor(
-        private router: Router
+        private router: Router,
+        private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics
     ) {}
 
     ngOnInit() {

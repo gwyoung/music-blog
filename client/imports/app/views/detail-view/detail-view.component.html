@@ -24,8 +24,8 @@
     <div class='list-title'>Comments</div>
     <div class='comment-list'>
         <comment-detail *ngFor='let comment of comments | async'
-            [postId]='post._id' [comment]='comment'></comment-detail>
-        <comment-detail *ngIf='canAddComment()' [postId]='post._id'
+            [post]='post' [comment]='comment'></comment-detail>
+        <comment-detail *ngIf='canAddComment()' [post]='post'
             [clearOnSubmit]='true'></comment-detail>
     </div>
     <div class='list-title'>Related</div>
