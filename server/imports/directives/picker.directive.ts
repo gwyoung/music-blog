@@ -9,15 +9,23 @@ Picker.route('/post/:slug', function (params, request, response, next) {
     let post: Post = Posts.findOne({ slug: params.slug });
 
     if (post) {
-        let title = (post.albums.length === 1
+        let title = post.albums.length === 1
             ? getAlbumTitle(post.albums[0])
-            : post.title) + ' | Bricks Clapping In The Dark';
+            : post.title;
+
+        let description = (post.albums.length === 1
+            ? post.albums[0].recommended
+                ? 'Vinyl Fantasy'
+                : 'Review'
+            : 'List') + ' :: Bricks Clapping In The Dark';
 
         // Prepend post-specific opengraph meta tags
         let metas: string = '';
         metas += '<meta property="og:title" content="' + title + '" />';
         metas += '<meta property="og:type" content="article" />';
-        metas += '<meta property="og:image" content="' + post.albums[0].imageUrl + '" />';
+        metas += '<meta property="og:description" content="' + description + '" />';
+        metas += '<meta property="og:image" content="'
+            + encodeURI(post.albums[0].imageUrl) + '" />';
 
         request.dynamicHead = request.dynamicHead || '';
         request.dynamicHead = metas + request.dynamicHead;
