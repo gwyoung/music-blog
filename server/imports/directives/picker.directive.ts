@@ -13,13 +13,29 @@ Picker.route('/post/:slug', function (params, request, response, next) {
             ? getAlbumTitle(post.albums[0])
             : post.title) + ' | Bricks Clapping In The Dark';
 
-        // Append post-specific opengraph meta tags
+        // Prepend post-specific opengraph meta tags
+        let metas: string = '';
+        metas += '<meta property="og:title" content="' + title + '" />';
+        metas += '<meta property="og:type" content="article" />';
+        metas += '<meta property="og:image" content="' + post.albums[0].imageUrl + '" />';
+
         request.dynamicHead = request.dynamicHead || '';
-        request.dynamicHead += '<meta property="og:title" content="' + title + '">';
-        request.dynamicHead += '<meta property="og:type" content="article">';
-        request.dynamicHead += '<meta property="og:image" content="'
-            + post.albums[0].imageUrl + '">';
+        request.dynamicHead = metas + request.dynamicHead;
     }
+
+    next();
+});
+
+Picker.route('/(.*)', function (params, request, response, next) {
+    // Generic opengraph meta tags
+    let metas: string = '';
+    metas += '<meta property="og:title" content="Bricks Clapping In The Dark" />';
+    metas += '<meta property="og:description" content="Music recommendations for whoever\'s listening." />';
+    metas += '<meta property="og:type" content="website" />';
+    metas += '<meta property="og:image" content="https://music-blog.s3-us-west-2.amazonaws.com/logo.jpg" />';
+
+    request.dynamicHead = request.dynamicHead || '';
+    request.dynamicHead = request.dynamicHead + metas;
 
     next();
 });
