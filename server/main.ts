@@ -5,6 +5,7 @@ import { Roles } from 'meteor/alanning:roles';
 import './imports/publications/posts.publication';
 import './imports/publications/post-comments.publication';
 import './imports/directives/upload.directive';
+import './imports/directives/picker.directive';
 
 Meteor.startup(() => {
     // Ensure that the admin user exists and has the correct permissions

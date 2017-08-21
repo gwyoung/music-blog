@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Title, Meta } from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
@@ -44,7 +44,6 @@ export class DetailViewComponent implements OnInit, OnDestroy {
     constructor(
         private route: ActivatedRoute,
         private titleService: Title,
-        private metaService: Meta,
         private postHelpersService: PostHelpersService
     ) {}
 
@@ -126,14 +125,9 @@ export class DetailViewComponent implements OnInit, OnDestroy {
                                     }));
 
                             // Set page title
-                            let title: string = this.postHelpersService.getTitle(this.post)
-                                + ' | Bricks Clapping In The Dark';
-                            this.titleService.setTitle(title);
-                            this.metaService.updateTag({ name: 'og:title', content: title });
-                            this.metaService.updateTag({
-                                name: 'og:image',
-                                content: this.post.albums[0].imageUrl
-                            });
+                            this.titleService.setTitle(
+                                this.postHelpersService.getTitle(this.post)
+                                + ' | Bricks Clapping In The Dark');
 
                             this.setExcludedPostIds();
                         }
