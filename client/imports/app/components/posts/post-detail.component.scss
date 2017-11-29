@@ -50,6 +50,25 @@
             text-align: justify;
         }
 
+        .embed-frame {
+            border: 0px;
+            width: 100%;
+            margin-top: $post-padding;
+
+            &.bandcamp {
+                // This is the default bandcamp embed height for the medium size
+                height: 120px;
+            }
+
+            &.youtube {
+                $desired-width: $app-width / 2 - 2 * $post-padding;
+
+                // This ratio comes from the youtube embed default size
+                // and leaves enough room for all the controls
+                height: 315 / 560 * $desired-width;
+            }
+        }
+
         .full-review {
             font-weight: bold;
             padding-top: $post-padding;

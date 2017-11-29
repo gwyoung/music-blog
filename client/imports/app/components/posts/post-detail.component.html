@@ -59,6 +59,10 @@
                 </a>
             </div>
             <div class='album-blurb' [innerHTML]='album.review | blurb'></div>
+            <iframe *ngIf='bandcampEmbedUrl' [src]='bandcampEmbedUrl'
+                class='embed-frame bandcamp' seamless></iframe>
+            <iframe *ngIf='youtubeEmbedUrl' [src]='youtubeEmbedUrl'
+                class='embed-frame youtube' allowfullscreen frameborder='0'></iframe>
             <div *ngIf='album.fullPostSlug' class='full-review'>
                 <a [routerLink]='["/post", album.fullPostSlug]'>See Full Review</a>
             </div>

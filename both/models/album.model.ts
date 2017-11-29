@@ -16,6 +16,11 @@ export interface Album {
     recommended: boolean;
     headphones: boolean;
 
+    // Optional embed ids
+    bandcampAlbumId?: string;
+    bandcampTrackId?: string;
+    youtubeId?: string;
+
     // Optional link to full post for this album review
     fullPostSlug?: string;
 }
