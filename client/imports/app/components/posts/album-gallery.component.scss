@@ -9,13 +9,12 @@
     top: 0;
     left: 0;
     right: 0;
-    overflow-y: scroll;
+    overflow-y: auto;
 
     .album-gallery {
         padding: $page-padding;
         width: $app-width;
         margin: auto;
-        overflow-y: scroll;
 
         .gallery-close {
             text-align: center;
